@@ -1,1 +1,1 @@
-"# grinding-leetcode" 
+# Grinding-leetcode
