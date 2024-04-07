@@ -51,11 +51,20 @@ func mergeAlternately(word1 string, word2 string) string {
 
 	var result string
 
-	for i := 0; i < len(word1); i++ {
-		result += string(word1[i])
-		if i < len(word2) {
-			result += string(word2[i])
-		}
+	minLength := len(word1)
+	if len(word2) < minLength {
+		minLength = len(word2)
+	}
+
+	for i := 0; i < minLength; i++ {
+		result += string(word1[i]) + string(word2[i])
+	}
+
+	// Append the remainder of the longer string
+	if len(word1) > minLength {
+		result += word1[minLength:]
+	} else if len(word2) > minLength {
+		result += word2[minLength:]
 	}
 
 	return result
