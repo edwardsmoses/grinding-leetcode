@@ -38,9 +38,9 @@ func main() {
 		result := mergeAlternately(testCase.word1, testCase.word2)
 		fmt.Println("Test result: ", result)
 		if result != testCase.expected {
-			fmt.Println("Test failed: ", testCase, result)
+			fmt.Println("Test failed: ", testCase.expected, result)
 		} else {
-			fmt.Println("Test passed: ", testCase, result)
+			fmt.Println("Test passed: ", testCase.expected, result)
 		}
 	}
 }
@@ -48,5 +48,15 @@ func main() {
 func mergeAlternately(word1 string, word2 string) string {
 	fmt.Println("word1: ", word1)
 	fmt.Println("word2: ", word2)
-	return "known result"
+
+	var result string
+
+	for i := 0; i < len(word1); i++ {
+		result += string(word1[i])
+		if i < len(word2) {
+			result += string(word2[i])
+		}
+	}
+
+	return result
 }
